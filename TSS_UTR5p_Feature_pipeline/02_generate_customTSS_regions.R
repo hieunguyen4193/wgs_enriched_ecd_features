@@ -1,29 +1,29 @@
 gc()
 rm(list = ls())
 
-path.to.main.src <- "/home/hieunguyen/src/ecd_wgs_enriched_and_kmer_features/TSS_Feature_pipeline"
+path.to.main.src <- "/home/hieunguyen/src/wgs_enriched_ecd_features"
 
-path.to.main.output <- "/home/hieunguyen/src/ecd_wgs_enriched_and_kmer_features/assets/TSS_Feature_pipeline"
-path.to.save.output <- file.path(path.to.main.output, "tss_beds")
-path.to.save.output2 <- file.path(path.to.main.output, "tss_custom_beds")
+path.to.main.output <- file.path(path.to.main.src, "assets", "TSS_UTR5p_regions")
+path.to.02.output <- file.path(path.to.main.output, "02_output")
+dir.create(path.to.02.output, showWarnings = FALSE, recursive = TRUE)
 
-dir.create(path.to.save.output, showWarnings = FALSE, recursive = TRUE)
-dir.create(path.to.save.output2, showWarnings = FALSE, recursive = TRUE)
-
-source(file.path(path.to.main.src, "helper_functions.R"))
+source(file.path(path.to.main.src, "TSS_UTR5p_Feature_pipeline", "helper_functions.R"))
 
 library(comprehenr)
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 
-if ("biomaRt" %in% installed.packages() == FALSE){
-  install.packages("dplyr")
-  BiocManager::install("biomaRt", update = FALSE)  
+new.bioc.pkgs <- c("liftOver", "biomaRt")
+for (pkg in new.bioc.pkgs){
+  if (pkg %in% installed.packages() == FALSE){
+    install.packages("dplyr")
+    BiocManager::install(pkg, update = FALSE)  
+  }  
 }
 
 library(liftOver)
 library(GenomicRanges)
-path.to.chain.file <-  "/home/hieunguyen/src/ecd_wgs_enriched_and_kmer_features/resources/hg38ToHg19.over.chain"
+path.to.chain.file <-  file.path(path.to.main.src, "resources/hg38ToHg19.over.chain")
 
 library(comprehenr)
 library(biomaRt)
@@ -89,59 +89,42 @@ colnames(tssdf.hg19) <- c("chrom",
                           "strand",
                           "gene",
                           "tssName")
-  
-
-promoterdf <- define_promoter_regions(tssdf = tssdf.hg19, 
-                                      up.flank = 250, 
-                                      down.flank = 250, 
-                                      outputdir = file.path(path.to.save.output, "biomart"))
-promoterdf <- define_promoter_regions(tssdf = tssdf.hg19, 
-                                      up.flank = 500, 
-                                      down.flank = 500, 
-                                      outputdir = file.path(path.to.save.output, "biomart"))
-promoterdf <- define_promoter_regions(tssdf = tssdf.hg19, 
-                                      up.flank = 1000, 
-                                      down.flank = 1000, 
-                                      outputdir = file.path(path.to.save.output, "biomart"))
-promoterdf <- define_promoter_regions(tssdf = tssdf.hg19, 
-                                      up.flank = 1500, 
-                                      down.flank = 1500, 
-                                      outputdir = file.path(path.to.save.output, "biomart"))
+write.csv(tssdf.hg19, file.path(path.to.02.output, "tssdf.hg19.csv"))
 
 customRegiondf <- define_customRegion_regions(tssdf = tssdf.hg19, 
                                               from.flank = 250, 
                                               to.flank = 500, 
                                               direction = "upstream", 
-                                              outputdir = file.path(path.to.save.output2, "biomart"),
+                                              outputdir = file.path(path.to.02.output, "biomart"),
                                               rerun = TRUE)
 customRegiondf <- define_customRegion_regions(tssdf = tssdf.hg19, 
                                               from.flank = 500, 
                                               to.flank = 1500, 
                                               direction = "upstream", 
-                                              outputdir = file.path(path.to.save.output2, "biomart"),
+                                              outputdir = file.path(path.to.02.output, "biomart"),
                                               rerun = TRUE)
 customRegiondf <- define_customRegion_regions(tssdf = tssdf.hg19, 
                                               from.flank = 500, 
                                               to.flank = 1000, 
                                               direction = "upstream", 
-                                              outputdir = file.path(path.to.save.output2, "biomart"),
+                                              outputdir = file.path(path.to.02.output, "biomart"),
                                               rerun = TRUE)
 
 customRegiondf <- define_customRegion_regions(tssdf = tssdf.hg19, 
                                               from.flank = 250, 
                                               to.flank = 500, 
                                               direction = "downstream", 
-                                              outputdir = file.path(path.to.save.output2, "biomart"),
+                                              outputdir = file.path(path.to.02.output, "biomart"),
                                               rerun = TRUE)
 customRegiondf <- define_customRegion_regions(tssdf = tssdf.hg19, 
                                               from.flank = 500, 
                                               to.flank = 1500, 
                                               direction = "downstream", 
-                                              outputdir = file.path(path.to.save.output2, "biomart"),
+                                              outputdir = file.path(path.to.02.output, "biomart"),
                                               rerun = TRUE)
 customRegiondf <- define_customRegion_regions(tssdf = tssdf.hg19, 
                                               from.flank = 500, 
                                               to.flank = 1000, 
                                               direction = "downstream", 
-                                              outputdir = file.path(path.to.save.output2, "biomart"),
+                                              outputdir = file.path(path.to.02.output, "biomart"),
                                               rerun = TRUE)

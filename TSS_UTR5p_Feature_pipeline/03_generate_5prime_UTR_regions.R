@@ -1,38 +1,18 @@
 gc()
 rm(list = ls())
 
-path.to.main.src <- "/home/hieunguyen/src/ecd_wgs_enriched_and_kmer_features/TSS_Feature_pipeline"
+path.to.main.src <- "/home/hieunguyen/src/wgs_enriched_ecd_features"
+path.to.main.output <- file.path(path.to.main.src, "assets", "TSS_UTR5p_regions")
+path.to.03.output <- file.path(path.to.main.output, "03_output")
+dir.create(path.to.03.output, showWarnings = FALSE, recursive = TRUE)
 
-path.to.main.output <- "/home/hieunguyen/src/ecd_wgs_enriched_and_kmer_features/assets/TSS_Feature_pipeline"
-path.to.save.output <- file.path(path.to.main.output, "tss_beds")
-path.to.save.output2 <- file.path(path.to.main.output, "tss_custom_beds")
-
-dir.create(path.to.save.output, showWarnings = FALSE, recursive = TRUE)
-dir.create(path.to.save.output2, showWarnings = FALSE, recursive = TRUE)
-
-source(file.path(path.to.main.src, "helper_functions.R"))
+source(file.path(path.to.main.src, "TSS_UTR5p_Feature_pipeline", "helper_functions.R"))
 
 library(comprehenr)
-# if (!requireNamespace("BiocManager", quietly = TRUE))
-#   install.packages("BiocManager")
-
-new.pkgs <- c("tidyverse")
-for (pkg in new.pkgs){
-  if (pkg %in% installed.packages() == FALSE){
-    install.packages(pkg)
-  }
-}
-
-new.bioc.pkgs <- c("liftOver", "biomart")
-for (pkg in new.bioc.pkgs){
-  if (pkg %in% installed.packages() == FALSE){
-    BiocManager::install(pkg, update = FALSE)      
-  }
-}
 library(liftOver)
 library(GenomicRanges)
-path.to.chain.file <-  "/home/hieunguyen/src/ecd_wgs_enriched_and_kmer_features/resources/hg38ToHg19.over.chain"
-path.to.save.biomart <- "/media/HNSD01/storage/biomart"
+
+path.to.chain.file <-  file.path(path.to.main.src, "resources/hg38ToHg19.over.chain")
 
 library(comprehenr)
 library(biomaRt)
@@ -54,17 +34,17 @@ library(dplyr)
 # get ensembl mart data
 ensembl = useEnsembl(biomart="ensembl", dataset="hsapiens_gene_ensembl")
 
-if (file.exists(file.path(path.to.save.biomart, "TSS.hg38.rds")) == FALSE){
+if (file.exists(file.path(path.to.03.output, "TSS.hg38.rds")) == FALSE){
   # get tss data. 
   tss_data <- getBM(
     attributes = c("chromosome_name", "transcription_start_site", 
                    "strand", "external_gene_name", "ensembl_gene_id"),
     mart = ensembl
   ) %>% data.frame()
-  saveRDS(tss_data, file.path(path.to.save.biomart, "TSS.hg38.rds"))
+  saveRDS(tss_data, file.path(path.to.03.output, "TSS.hg38.rds"))
 } else {
   print("reading in tss data for hg38 ...")
-  tss_data <- readRDS(file.path(path.to.save.biomart, "TSS.hg38.rds"))
+  tss_data <- readRDS(file.path(path.to.03.output, "TSS.hg38.rds"))
 }
 
 all.chroms <- to_vec(for (i in seq(1,22)) sprintf("%s", i))
@@ -75,7 +55,7 @@ tss_data <- subset(tss_data, tss_data$chromosome_name %in% all.chroms)
 # input.gene <- head(tss_data$external_gene_name)
 # input.gene <- sample(tss_data$external_gene_name, 10)
 
-if (file.exists(file.path(path.to.save.biomart, "5prime_UTR.hg38.rds")) == FALSE){
+if (file.exists(file.path(path.to.03.output, "5prime_UTR.hg38.rds")) == FALSE){
   N <- 100
   split.batch.genes <- split(tss_data$external_gene_name, ceiling(seq_along(tss_data$external_gene_name) / N))
   utrdf <- data.frame()
@@ -99,11 +79,11 @@ if (file.exists(file.path(path.to.save.biomart, "5prime_UTR.hg38.rds")) == FALSE
     tmp.utrdf <- query.bm[, c("chrom", "start", "end", "gene", "5_prime_utr_start", "5_prime_utr_end", "width", "mid.point")]  
     utrdf <- rbind(utrdf, tmp.utrdf)
   }
-  saveRDS(utrdf, file.path(path.to.save.biomart, "5prime_UTR.hg38.rds"))
+  saveRDS(utrdf, file.path(path.to.03.output, "5prime_UTR.hg38.rds"))
 } else {
   print("File 5prime_UTR.hg38.rds exsits.")
   print("reading in saved 5' UTR for hg38 ...")
-  utrdf <- readRDS(file.path(path.to.save.biomart, "5prime_UTR.hg38.rds"))
+  utrdf <- readRDS(file.path(path.to.03.output, "5prime_UTR.hg38.rds"))
   utrdf <- subset(utrdf, utrdf$chrom %in% all.chroms)
   utrdf <- utrdf %>% rowwise() %>%
     mutate(chrom = sprintf("chr%s", chrom))
@@ -111,7 +91,7 @@ if (file.exists(file.path(path.to.save.biomart, "5prime_UTR.hg38.rds")) == FALSE
 
 re.save.bed.file <- FALSE
 if (re.save.bed.file == TRUE){
-  write.table(utrdf, file.path(path.to.save.biomart, "5prime_UTR.hg38.bed"), quote = FALSE,
+  write.table(utrdf, file.path(path.to.03.output, "5prime_UTR.hg38.bed"), quote = FALSE,
               sep = "\t", row.names = FALSE, col.names = FALSE)
 }
 
@@ -146,12 +126,12 @@ colnames(utrdf.hg19) <- c("chrom",
                           "5_prime_utr_start",
                           "5_prime_utr_end",
                           "mid.point")
-write.table(utrdf.hg19, file.path(path.to.save.biomart, "5prime_UTR.hg19.bed"), quote = FALSE,
+write.table(utrdf.hg19, file.path(path.to.03.output, "5prime_UTR.hg19.bed"), quote = FALSE,
             sep = "\t", row.names = FALSE, col.names = FALSE)
 
 ##### overlap utrdf.hg19 with nucleosome map, 
 
-if (file.exists(file.path(path.to.save.biomart, "5prime_UTR_overlap_nucleosomeMap.hg19.bed")) == FALSE){
+if (file.exists(file.path(path.to.03.output, "5prime_UTR_overlap_nucleosomeMap.hg19.bed")) == FALSE){
   # read in nucleosome map
   path.to.nucleosome.map <- "/media/HNSD01/storage/resources/rpr_map_EXP0779.sorted.bed"
   nucleosome.map <- read.csv(path.to.nucleosome.map, header = FALSE, sep = "\t")
@@ -196,12 +176,12 @@ if (file.exists(file.path(path.to.save.biomart, "5prime_UTR_overlap_nucleosomeMa
   
   overlapdf <- overlapdf[!duplicated(overlapdf$region),]
   colnames(overlapdf) <- c("chrom", "start", "end", "region", "region.len")
-  write.table(overlapdf, file.path(path.to.save.biomart, "5prime_UTR_overlap_nucleosomeMap.hg19.bed"), quote = FALSE,
+  write.table(overlapdf, file.path(path.to.03.output, "5prime_UTR_overlap_nucleosomeMap.hg19.bed"), quote = FALSE,
               sep = "\t", row.names = FALSE, col.names = FALSE)
   
 } else {
   print(sprintf("File exists at %s", 
-                file.path(path.to.save.biomart, "5prime_UTR_overlap_nucleosomeMap.hg19.bed")))
+                file.path(path.to.03.output, "5prime_UTR_overlap_nucleosomeMap.hg19.bed")))
 }
 
 # EOF

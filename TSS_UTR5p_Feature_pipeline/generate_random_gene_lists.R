@@ -23,7 +23,7 @@ library(dplyr)
 library(biomaRt)
 library(ggrepel)
 
-path.to.main.src <- "/home/hieunguyen/src/ecd_tcga_bulk_rnaseq_data_analysis"
+path.to.main.src <- "/home/hieunguyen/src/wgs_enriched_ecd_features/TSS_UTR5p_Feature_pipeline"
 source(file.path(path.to.main.src, "helper_functions.R"))
 
 # input.cohort <- "TCGA-BRCA"
@@ -46,16 +46,12 @@ all.cohorts <- c("TCGA-BRCA", "TCGA-LIHC", "TCGA-STAD", "TCGA-LUSC", "TCGA-LUAD"
 outdir <- "/media/HNSD01/outdir/ecd_tcga_bulk_rnaseq_data_analysis"
 
 list.version <- "v0.2"
-path.to.save.output <- "/home/hieunguyen/src/ecd_wgs_enriched_and_kmer_features"
+path.to.save.output <- path.to.main.src
 
-if (file.exists(file.path(path.to.save.output, "TSS_Feature_pipeline", "gene_lists_v0.2.rds")) == FALSE){
+if (file.exists(file.path(path.to.save.output, "gene_lists_v0.2.rds")) == FALSE){
   gene.list <- list()
   
-  for (input.cohort in all.cohorts){
-    path.to.main.output <- file.path(outdir, input.cohort)
-    path.to.01.output <- file.path(path.to.main.output, "01_output", sprintf("run_%s", "*"))
-    path.to.02.output <- file.path(path.to.main.output, "02_output")
-    
+  for (input.cohort in all.cohorts){    
     up.genedf <- readxl::read_excel(file.path(path.to.02.output, "up_genedf.xlsx"))
     down.genedf <- readxl::read_excel(file.path(path.to.02.output, "down_genedf.xlsx"))
     cancer.type <- convert.cohort.names[[input.cohort]]
@@ -76,7 +72,7 @@ if (file.exists(file.path(path.to.save.output, "TSS_Feature_pipeline", "gene_lis
   }
   
   # save output to the directory where we generate enriched features
-  saveRDS(gene.list, file.path(path.to.save.output, "TSS_Feature_pipeline", "gene_lists_v0.2.rds"))
+  saveRDS(gene.list, file.path(path.to.save.output, "gene_lists_v0.2.rds"))
 } else {
   print("gene list v0.2 exists, not generate a new one")
 }
@@ -90,9 +86,6 @@ for (i in seq(1, 10)){
   random.genelist <- list()
   
   for (input.cohort in all.cohorts){
-    path.to.main.output <- file.path(outdir, input.cohort)
-    path.to.01.output <- file.path(path.to.main.output, "01_output", sprintf("run_%s", "*"))
-    path.to.02.output <- file.path(path.to.main.output, "02_output")
     
     up.genedf <- readxl::read_excel(file.path(outdir, "full_genelist.xlsx"))
     down.genedf <- readxl::read_excel(file.path(outdir, "full_genelist.xlsx"))
@@ -126,3 +119,4 @@ for (i in seq(1, 10)){
   saveRDS(random.genelist, file.path(path.to.save.output, "TSS_Feature_pipeline", sprintf("RANDOM_gene_lists_v%s.rds", i)))
 }
 
+# EOF
