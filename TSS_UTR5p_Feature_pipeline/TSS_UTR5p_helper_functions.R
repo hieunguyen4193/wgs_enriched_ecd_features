@@ -1,4 +1,5 @@
 generate_tss_regions_for_input_genes <- function(tssdf, input.genes, outputdir, up.flank = 1000, down.flank = 1000){
+  dir.create(outputdir, showWarnings = FALSE, recursive = TRUE)
   tssdf.filter <- subset(tssdf, tssdf$gene %in% input.genes)
   promoterdf <- define_promoter_regions(tssdf = tssdf.filter, 
                                         up.flank = up.flank, 
