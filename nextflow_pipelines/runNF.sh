@@ -3,8 +3,7 @@ RUN_NAME="down_genes_v0.1_Breast_TSS_beds_Normal";
 
 bedlist="/home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/bed_list.tsv"
 
-while IFS='\t' read -r INPUT_BED RUN_NAME; do \
-    echo $RUN_NAME
+while IFS=',' read -r INPUT_BED RUN_NAME; do \
     echo -e "Working on bed file "${INPUT_BED} " with run name " ${RUN_NAME};
     # run the pipeline
     # SAMPLE_SHEET="SampleSheet_BAM_highdepth.csv"; # bam file in HPC
@@ -46,7 +45,7 @@ while IFS='\t' read -r INPUT_BED RUN_NAME; do \
         -with-timeline "${OUTDIR}/timeline.html" \
         -with-dag "${OUTDIR}/dag.svg";
 
-    rm -rf ${WORKDIR}
+#    rm -rf ${WORKDIR}
 
 done < <(tail -n +2 ${bedlist})
 

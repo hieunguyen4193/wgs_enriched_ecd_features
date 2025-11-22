@@ -1,126 +1,174 @@
-Nov-23 02:36:33.230 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --SAMPLE_SHEET SampleSheet_BAM_highdepth.csv --INPUT_BED /mnt/nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed --OUTDIR /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal --E01_SH ../E01_generate_filter_BAM_files.sh --E02_SH ../E02_generate_enriched_ecd_wgs_features.sh --E03_SH ../E03_generate_TSS_count_features_at_enriched_regions.sh --PATH_TO_FA /mnt/nvme/DATA_HIEUNGUYEN/resource/hg19.fa --PANDEPTH /mnt/nvme/DATA_HIEUNGUYEN/resource/PanDepth/bin/pandepth --feature_srcdir ./ecd_wgs_feature_pipeline-ecd_wgs_pipeline_v1.0 --path_to_nucleosome_ref /mnt/nvme/DATA_HIEUNGUYEN/resource/rpr_map_EXP0779.sorted.bed -resume -c default.config -w /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir -with-report /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/report.html -with-timeline /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/timeline.html -with-dag /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/dag.svg
-Nov-23 02:36:33.323 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.2
-Nov-23 02:36:33.342 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/hieunguyen/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.0,nf-k8s@1.0.0,nf-tower@1.11.2,nf-wave@1.12.1
-Nov-23 02:36:33.368 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Nov-23 02:36:33.369 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Nov-23 02:36:33.371 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Nov-23 02:36:33.381 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Nov-23 02:36:33.399 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/default.config
-Nov-23 02:36:33.401 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/default.config
-Nov-23 02:36:33.424 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/hieunguyen/.nextflow/secrets/store.json
-Nov-23 02:36:33.428 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@5d1e09bc] - activable => nextflow.secret.LocalSecretsProvider@5d1e09bc
-Nov-23 02:36:33.439 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Nov-23 02:36:33.888 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Nov-23 02:36:33.900 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [jolly_wescoff] DSL2 - revision: 88fd89f0c8
-Nov-23 02:36:33.901 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Nov-23 02:36:33.901 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Nov-23 02:36:33.941 [main] DEBUG nextflow.Session - Session UUID: e8bd47af-0c56-4ee8-aab6-501905df4da0
-Nov-23 02:36:33.941 [main] DEBUG nextflow.Session - Run name: jolly_wescoff
-Nov-23 02:36:33.942 [main] DEBUG nextflow.Session - Executor pool size: 512
-Nov-23 02:36:33.948 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Nov-23 02:36:33.952 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=1536; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-23 02:36:33.978 [main] DEBUG nextflow.cli.CmdRun - 
+Nov-23 05:23:14.775 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --SAMPLE_SHEET SampleSheet_BAM_highdepth_ExpressServer.csv --INPUT_BED /mnt/nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed --OUTDIR /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal --E01_SH ../E01_generate_filter_BAM_files.sh --E02_SH ../E02_generate_enriched_ecd_wgs_features.sh --E03_SH ../E03_generate_TSS_count_features_at_enriched_regions.sh --PATH_TO_FA /mnt/nvme/DATA_HIEUNGUYEN/resource/hg19.fa --PANDEPTH /mnt/nvme/DATA_HIEUNGUYEN/resource/PanDepth/bin/pandepth --feature_srcdir ./ecd_wgs_feature_pipeline-ecd_wgs_pipeline_v1.0 --path_to_nucleosome_ref /mnt/nvme/DATA_HIEUNGUYEN/resource/rpr_map_EXP0779.sorted.bed -resume -c default.config -w /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal -with-report /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/report.html -with-timeline /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/timeline.html -with-dag /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/dag.svg
+Nov-23 05:23:14.865 [main] WARN  nextflow.util.HistoryFile - Can't read history file: .nextflow/history
+java.lang.IllegalArgumentException: Not a valid history entry: `2025-11-23 05:11:42	-	scruffy_fermat	-	88fd89f0c83c5dfb0801c1d3dc3b5595	e8bd47af-0c56-4ee8-aab6-501905df4da0	nextflow run main.nf --SAMPLE_SHEET SampleSheet_BAM_highdepth_ExpressServer.csv --INPUT_BED /mn --OUTDIR /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features//nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed down_genes_v0.1_Breast_TSS_beds_Normal --E01_SH ../E01_generate_filter_BAM_files.sh --E02_SH ../E02_generate_enriched_ecd_wgs_features.sh --E03_SH ../E03_generate_TSS_count_features_at_enriched_regions.sh --PATH_TO_FA /mnt/nvme/DATA_HIEUNGUYEN/resource/hg19.fa --PANDEPTH /mnt/nvme/DATA_HIEUNGUYEN/resource/PanDepth/bin/pandepth --feature_srcdir ./ecd_wgs_feature_pipeline-ecd_wgs_pipeline_v1.0 --path_to_nucleosome_ref /mnt/nvme/DATA_HIEUNGUYEN/resource/rpr_map_EXP0779.sorted.bed -resume -c default.config -w /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir//nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed down_genes_v0.1_Breast_TSS_beds_Normal -with-report /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features//nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed	down_genes_v0.1_Breast_TSS_beds_Normal/report.html -with-timeline /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features//nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed	down_genes_v0.1_Breast_TSS_beds_Normal/timeline.html -with-dag /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features//nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed	down_genes_v0.1_Breast_TSS_beds_Normal/dag.svg`
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.util.HistoryFile$Record.parse(HistoryFile.groovy:409)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.util.HistoryFile$_findAll_closure9.doCall(HistoryFile.groovy:267)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:422)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.findResults(DefaultGroovyMethods.java:4798)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.findResults(DefaultGroovyMethods.java:4766)
+	at org.codehaus.groovy.runtime.dgm$301.doMethodInvoke(Unknown Source)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.util.HistoryFile.findAll(HistoryFile.groovy:265)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.util.HistoryFile.findAllRunNames(HistoryFile.groovy:461)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:343)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.util.HistoryFile$_generateNextName_closure16.doCall(HistoryFile.groovy:465)
+	at nextflow.util.HistoryFile$_generateNextName_closure16.doCall(HistoryFile.groovy)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.util.HistoryFile.withFileLock(HistoryFile.groovy:442)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.util.HistoryFile.generateNextName(HistoryFile.groovy:465)
+	at nextflow.cli.CmdRun.checkRunName(CmdRun.groovy:511)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:320)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Nov-23 05:23:14.885 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.2
+Nov-23 05:23:14.903 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/hieunguyen/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.0,nf-k8s@1.0.0,nf-tower@1.11.2,nf-wave@1.12.1
+Nov-23 05:23:14.930 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-23 05:23:14.931 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-23 05:23:14.933 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-23 05:23:14.943 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-23 05:23:14.955 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/default.config
+Nov-23 05:23:14.956 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/default.config
+Nov-23 05:23:14.982 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/hieunguyen/.nextflow/secrets/store.json
+Nov-23 05:23:14.985 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@4c0884e8] - activable => nextflow.secret.LocalSecretsProvider@4c0884e8
+Nov-23 05:23:14.996 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-23 05:23:15.439 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Nov-23 05:23:15.451 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [amazing_goldberg] DSL2 - revision: 88fd89f0c8
+Nov-23 05:23:15.453 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-23 05:23:15.453 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov-23 05:23:15.492 [main] DEBUG nextflow.Session - Session UUID: 20d06b86-c97b-472b-9739-a75a4f969361
+Nov-23 05:23:15.492 [main] DEBUG nextflow.Session - Run name: amazing_goldberg
+Nov-23 05:23:15.492 [main] DEBUG nextflow.Session - Executor pool size: 512
+Nov-23 05:23:15.498 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov-23 05:23:15.503 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=1536; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-23 05:23:15.584 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.04.2 build 5947
   Created: 13-05-2025 21:58 UTC (14-05-2025 04:58 ICST)
   System: Linux 6.12.0-103.40.4.2.el9uek.x86_64
   Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 21.0.6+9-b895.97
   Encoding: UTF-8 (UTF-8)
-  Process: 1612361@r02.cluster [192.168.20.12]
-  CPUs: 512 - Mem: 1.5 TB (11.5 GB) - Swap: 0 (0)
-Nov-23 02:36:34.013 [main] DEBUG nextflow.Session - Work-dir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir [xfs]
-Nov-23 02:36:34.014 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/bin
-Nov-23 02:36:34.024 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Nov-23 02:36:34.034 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Nov-23 02:36:34.058 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Nov-23 02:36:34.080 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Nov-23 02:36:34.089 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 513; maxThreads: 1000
-Nov-23 02:36:34.156 [main] DEBUG nextflow.Session - Session start
-Nov-23 02:36:34.163 [main] DEBUG nextflow.Session - Report file already exists: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/report.html -- enable the 'report.overwrite' option in your config file to overwrite existing files
-nextflow.exception.AbortOperationException: Report file already exists: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/report.html -- enable the 'report.overwrite' option in your config file to overwrite existing files
-	at nextflow.trace.ReportObserver.onFlowCreate(ReportObserver.groovy:133)
-	at nextflow.Session$_notifyFlowCreate_lambda40.doCall(Session.groovy:1093)
-	at nextflow.Session.notifyEvent(Session.groovy:1138)
-	at nextflow.Session.notifyFlowCreate(Session.groovy:1093)
-	at nextflow.Session.start(Session.groovy:585)
-	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
-	at nextflow.cli.Launcher.run(Launcher.groovy:513)
-	at nextflow.cli.Launcher.main(Launcher.groovy:673)
-Nov-23 02:36:34.164 [main] DEBUG nextflow.Session - Timeline file already exists: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/timeline.html -- enable the 'timeline.overwrite' option in your config file to overwrite existing files
-nextflow.exception.AbortOperationException: Timeline file already exists: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/timeline.html -- enable the 'timeline.overwrite' option in your config file to overwrite existing files
-	at nextflow.trace.TimelineObserver.onFlowCreate(TimelineObserver.groovy:76)
-	at nextflow.Session$_notifyFlowCreate_lambda40.doCall(Session.groovy:1093)
-	at nextflow.Session.notifyEvent(Session.groovy:1138)
-	at nextflow.Session.notifyFlowCreate(Session.groovy:1093)
-	at nextflow.Session.start(Session.groovy:585)
-	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
-	at nextflow.cli.Launcher.run(Launcher.groovy:513)
-	at nextflow.cli.Launcher.main(Launcher.groovy:673)
-Nov-23 02:36:34.166 [main] DEBUG nextflow.Session - DAG file already exists: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/dag.svg -- enable `dag.overwrite` in your config file to overwrite existing DAG files
-nextflow.exception.AbortOperationException: DAG file already exists: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/down_genes_v0.1_Breast_TSS_beds_Normal/dag.svg -- enable `dag.overwrite` in your config file to overwrite existing DAG files
+  Process: 1711879@r02.cluster [192.168.20.12]
+  CPUs: 512 - Mem: 1.5 TB (8.5 GB) - Swap: 0 (0)
+Nov-23 05:23:15.592 [main] WARN  nextflow.util.HistoryFile - Can't read history file: .nextflow/history
+java.lang.IllegalArgumentException: Not a valid history entry: `2025-11-23 05:11:42	-	scruffy_fermat	-	88fd89f0c83c5dfb0801c1d3dc3b5595	e8bd47af-0c56-4ee8-aab6-501905df4da0	nextflow run main.nf --SAMPLE_SHEET SampleSheet_BAM_highdepth_ExpressServer.csv --INPUT_BED /mn --OUTDIR /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features//nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed down_genes_v0.1_Breast_TSS_beds_Normal --E01_SH ../E01_generate_filter_BAM_files.sh --E02_SH ../E02_generate_enriched_ecd_wgs_features.sh --E03_SH ../E03_generate_TSS_count_features_at_enriched_regions.sh --PATH_TO_FA /mnt/nvme/DATA_HIEUNGUYEN/resource/hg19.fa --PANDEPTH /mnt/nvme/DATA_HIEUNGUYEN/resource/PanDepth/bin/pandepth --feature_srcdir ./ecd_wgs_feature_pipeline-ecd_wgs_pipeline_v1.0 --path_to_nucleosome_ref /mnt/nvme/DATA_HIEUNGUYEN/resource/rpr_map_EXP0779.sorted.bed -resume -c default.config -w /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir//nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed down_genes_v0.1_Breast_TSS_beds_Normal -with-report /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features//nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed	down_genes_v0.1_Breast_TSS_beds_Normal/report.html -with-timeline /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features//nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed	down_genes_v0.1_Breast_TSS_beds_Normal/timeline.html -with-dag /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features//nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed	down_genes_v0.1_Breast_TSS_beds_Normal/dag.svg`
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.selectMethod(IndyInterface.java:355)
 	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.trace.GraphObserver.onFlowCreate(GraphObserver.groovy:77)
-	at nextflow.Session$_notifyFlowCreate_lambda40.doCall(Session.groovy:1093)
-	at nextflow.Session.notifyEvent(Session.groovy:1138)
-	at nextflow.Session.notifyFlowCreate(Session.groovy:1093)
-	at nextflow.Session.start(Session.groovy:585)
-	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.util.HistoryFile$Record.parse(HistoryFile.groovy:409)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.util.HistoryFile$_findById_closure6.doCall(HistoryFile.groovy:195)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:422)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.findResults(DefaultGroovyMethods.java:4798)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.findResults(DefaultGroovyMethods.java:4766)
+	at org.codehaus.groovy.runtime.dgm$301.doMethodInvoke(Unknown Source)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.util.HistoryFile.findById(HistoryFile.groovy:193)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.util.HistoryFile.checkExistsById(HistoryFile.groovy:145)
+	at nextflow.script.ScriptRunner.verifyAndTrackHistory(ScriptRunner.groovy:282)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:375)
 	at nextflow.cli.Launcher.run(Launcher.groovy:513)
 	at nextflow.cli.Launcher.main(Launcher.groovy:673)
-Nov-23 02:36:34.342 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Nov-23 02:36:34.837 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:filterBAM_by_inputBed` matches process nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed
-Nov-23 02:36:34.838 [main] WARN  nextflow.script.ProcessConfig - Unknown directive `params` for process `nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed`
-Nov-23 02:36:34.850 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-23 02:36:34.850 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-23 02:36:34.855 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Nov-23 02:36:34.862 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=512; memory=1.5 TB; capacity=512; pollInterval=100ms; dumpInterval=5m
-Nov-23 02:36:34.864 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Nov-23 02:36:34.885 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed': maxForks=10; fair=false; array=0
-Nov-23 02:36:34.914 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:generate_enriched_ecd_wgs_features` matches process nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features
-Nov-23 02:36:34.914 [main] WARN  nextflow.script.ProcessConfig - Unknown directive `params` for process `nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features`
-Nov-23 02:36:34.917 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-23 02:36:34.917 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-23 02:36:34.918 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features': maxForks=10; fair=false; array=0
-Nov-23 02:36:34.925 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:generate_enriched_TSS_count_features` matches process nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features
-Nov-23 02:36:34.925 [main] WARN  nextflow.script.ProcessConfig - Unknown directive `params` for process `nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features`
-Nov-23 02:36:34.927 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-23 02:36:34.928 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-23 02:36:34.929 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features': maxForks=10; fair=false; array=0
-Nov-23 02:36:34.932 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: filterBAM_by_inputBed, nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features, nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed, nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features, generate_enriched_ecd_wgs_features, generate_enriched_TSS_count_features
-Nov-23 02:36:34.934 [main] DEBUG nextflow.Session - Igniting dataflow network (4)
-Nov-23 02:36:34.939 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed
-Nov-23 02:36:34.940 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features
-Nov-23 02:36:34.941 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features
-Nov-23 02:36:34.942 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+Nov-23 05:23:15.615 [main] DEBUG nextflow.Session - Work-dir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal [xfs]
+Nov-23 05:23:15.615 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/bin
+Nov-23 05:23:15.624 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-23 05:23:15.633 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov-23 05:23:15.651 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Nov-23 05:23:15.670 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov-23 05:23:15.677 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 513; maxThreads: 1000
+Nov-23 05:23:15.733 [main] DEBUG nextflow.Session - Session start
+Nov-23 05:23:15.901 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-23 05:23:16.393 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:filterBAM_by_inputBed` matches process nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed
+Nov-23 05:23:16.395 [main] WARN  nextflow.script.ProcessConfig - Unknown directive `params` for process `nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed`
+Nov-23 05:23:16.408 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-23 05:23:16.409 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-23 05:23:16.415 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-23 05:23:16.422 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=512; memory=1.5 TB; capacity=512; pollInterval=100ms; dumpInterval=5m
+Nov-23 05:23:16.425 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov-23 05:23:16.449 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed': maxForks=10; fair=false; array=0
+Nov-23 05:23:16.485 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:generate_enriched_ecd_wgs_features` matches process nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features
+Nov-23 05:23:16.485 [main] WARN  nextflow.script.ProcessConfig - Unknown directive `params` for process `nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features`
+Nov-23 05:23:16.489 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-23 05:23:16.489 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-23 05:23:16.492 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features': maxForks=10; fair=false; array=0
+Nov-23 05:23:16.500 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:generate_enriched_TSS_count_features` matches process nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features
+Nov-23 05:23:16.500 [main] WARN  nextflow.script.ProcessConfig - Unknown directive `params` for process `nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features`
+Nov-23 05:23:16.502 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-23 05:23:16.503 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-23 05:23:16.504 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features': maxForks=10; fair=false; array=0
+Nov-23 05:23:16.507 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: filterBAM_by_inputBed, nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features, nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed, nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features, generate_enriched_ecd_wgs_features, generate_enriched_TSS_count_features
+Nov-23 05:23:16.509 [main] DEBUG nextflow.Session - Igniting dataflow network (4)
+Nov-23 05:23:16.515 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed
+Nov-23 05:23:16.515 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features
+Nov-23 05:23:16.516 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features
+Nov-23 05:23:16.517 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
   Script_1b851626726fcf86: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/modules/generate_enriched_ecd_wgs_features.nf
   Script_9bef57911431d98d: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/modules/generate_enriched_TSS_count_features.nf
   Script_cba29a940c786a5f: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/main.nf
-  Script_6b69257770e17a92: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/subworkflows/pipeline_init.nf
   Script_440fff097530d7e8: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/workflows/nf01_enriched_features_and_TSS_count_features.nf
-  Script_cf9e4ea75cc3c052: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/subworkflows/run_enriched_features_and_TSS_count_features.nf
+  Script_6b69257770e17a92: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/subworkflows/pipeline_init.nf
   Script_3829d38b3726548e: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/modules/filterBAM_by_inputBed.nf
-Nov-23 02:36:34.942 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Nov-23 02:36:34.942 [main] DEBUG nextflow.Session - Session await
-Nov-23 02:36:42.488 [Actor Thread 12] INFO  nextflow.processor.TaskProcessor - [1d/de8a12] Cached process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZKI75A1HD)
-Nov-23 02:36:42.517 [Actor Thread 12] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=1536; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-23 02:36:42.578 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-23 02:36:42.580 [Task submitter] INFO  nextflow.Session - [77/9f6a43] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZKJ53A1HD)
-Nov-23 02:36:42.634 [Actor Thread 86] INFO  nextflow.processor.TaskProcessor - [69/c28983] Cached process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZKI75A1HD)
-Nov-23 02:36:43.039 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-23 02:36:43.040 [Task submitter] INFO  nextflow.Session - [14/c54656] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZKI75A1HD)
-Nov-23 02:36:50.587 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 43; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZKI75A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/14/c54656985f4fba41e7a8e8f0471e6e]
-Nov-23 02:36:50.589 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=1536; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-23 02:37:45.866 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 26; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZKJ53A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/77/9f6a4322695c3fcd26f6fb37247f64]
-Nov-23 02:37:45.900 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-23 02:37:45.901 [Task submitter] INFO  nextflow.Session - [c1/c2a9d7] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZKJ53A1HD)
-Nov-23 02:37:46.258 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-23 02:37:46.259 [Task submitter] INFO  nextflow.Session - [21/75a404] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZKJ53A1HD)
-Nov-23 02:37:48.407 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 45; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZKJ53A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/c1/c2a9d75272464743814e2d35101801]
-Nov-23 02:37:54.108 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 44; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZKJ53A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/21/75a404c8ee0a63d222721696034e45]
-Nov-23 02:38:00.140 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
-Nov-23 02:38:00.158 [SIGINT handler] DEBUG nextflow.Session - The following nodes are still active:
+  Script_cf9e4ea75cc3c052: /home/hieunguyen/src/wgs_enriched_ecd_features/nextflow_pipelines/subworkflows/run_enriched_features_and_TSS_count_features.nf
+Nov-23 05:23:16.517 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov-23 05:23:16.517 [main] DEBUG nextflow.Session - Session await
+Nov-23 05:23:23.341 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:23:23.345 [Task submitter] INFO  nextflow.Session - [1f/692c1f] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZMLGAAU66HD)
+Nov-23 05:23:59.903 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:23:59.906 [Task submitter] INFO  nextflow.Session - [a8/5e4ca5] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZKJ36A1HD)
+Nov-23 05:24:34.153 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 32; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZMLGAAU66HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/1f/692c1f9dc43d18dbe061a4a9308b0a]
+Nov-23 05:24:34.154 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=1536; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-23 05:24:34.196 [TaskFinalizer-1] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=1536; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-23 05:24:34.207 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:24:34.208 [Task submitter] INFO  nextflow.Session - [11/28d768] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZMLGAAU66HD)
+Nov-23 05:24:34.586 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:24:34.587 [Task submitter] INFO  nextflow.Session - [e5/d85e5c] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZMLGAAU66HD)
+Nov-23 05:24:37.137 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 43; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZMLGAAU66HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/11/28d768f225f16f1f14e2b26ef9a827]
+Nov-23 05:24:45.317 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 42; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZMLGAAU66HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/e5/d85e5c41f2fcedc7f98a83f65711e2]
+Nov-23 05:24:46.055 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:24:46.056 [Task submitter] INFO  nextflow.Session - [1a/7ea175] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZMLGAAQ99HD)
+Nov-23 05:24:59.229 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 25; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZKJ36A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/a8/5e4ca5e3067ce6a03c18a04c6c6de3]
+Nov-23 05:24:59.259 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:24:59.260 [Task submitter] INFO  nextflow.Session - [79/70121d] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZKJ36A1HD)
+Nov-23 05:24:59.607 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:24:59.608 [Task submitter] INFO  nextflow.Session - [20/f6af8a] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZKJ36A1HD)
+Nov-23 05:25:03.407 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 44; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZKJ36A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/79/70121d08d6fc9e7f59625d3266d7f9]
+Nov-23 05:25:09.277 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 45; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZKJ36A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/20/f6af8a3ba0d1c493ec085ce29b4e0f]
+Nov-23 05:25:49.312 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 30; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZMLGAAQ99HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/1a/7ea1755c4a9462a018b528abb22a74]
+Nov-23 05:25:49.334 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:25:49.335 [Task submitter] INFO  nextflow.Session - [cc/315f2e] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZMLGAAQ99HD)
+Nov-23 05:25:49.684 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:25:49.685 [Task submitter] INFO  nextflow.Session - [78/02f27d] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZMLGAAQ99HD)
+Nov-23 05:25:53.434 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 47; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZMLGAAQ99HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/cc/315f2e30e3bca869d9ec2828c8be4d]
+Nov-23 05:25:57.570 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 46; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZMLGAAQ99HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/78/02f27d57c7b63223bee81c19241e65]
+Nov-23 05:28:16.554 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > No more task to compute -- The following nodes are still active:
 [process] nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed
   status=ACTIVE
   port 0: (queue) closed; channel: -
@@ -145,12 +193,46 @@ Nov-23 02:38:00.158 [SIGINT handler] DEBUG nextflow.Session - The following node
   port 3: (value) bound ; channel: pandepth
   port 4: (cntrl) -     ; channel: $
 
-Nov-23 02:38:00.164 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Nov-23 02:38:00.165 [main] DEBUG nextflow.Session - Session await > all processes finished
-Nov-23 02:38:00.165 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Nov-23 02:38:00.174 [Actor Thread 8] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed; work-dir=null
-  error [java.lang.InterruptedException]: java.lang.InterruptedException
-Nov-23 02:38:00.182 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=4; failedCount=0; ignoredCount=0; cachedCount=2; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=13m 28s; failedDuration=0ms; cachedDuration=13m 44s;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=20; peakMemory=180 GB; ]
-Nov-23 02:38:00.182 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
-Nov-23 02:38:00.496 [SIGINT handler] INFO  nextflow.Session - Adieu
+Nov-23 05:30:44.335 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:30:44.336 [Task submitter] INFO  nextflow.Session - [90/6a4c41] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZKJ53A1HD)
+Nov-23 05:31:43.396 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 26; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZKJ53A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/90/6a4c416010c7486c8a486f84bf4554]
+Nov-23 05:31:43.417 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:31:43.418 [Task submitter] INFO  nextflow.Session - [de/f658fc] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZKJ53A1HD)
+Nov-23 05:31:43.784 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:31:43.785 [Task submitter] INFO  nextflow.Session - [ae/26fac0] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZKJ53A1HD)
+Nov-23 05:31:47.595 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 48; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZKJ53A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/de/f658fc186edd4c2d90aedb4cfb280b]
+Nov-23 05:31:53.143 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 49; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZKJ53A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/ae/26fac095e0c290492d0a0052618a0f]
+Nov-23 05:33:16.569 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > No more task to compute -- The following nodes are still active:
+[process] nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed
+  status=ACTIVE
+  port 0: (queue) closed; channel: -
+  port 1: (value) bound ; channel: inputbed
+  port 2: (value) bound ; channel: inputSH
+  port 3: (cntrl) -     ; channel: $
+
+[process] nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: inputSH
+  port 2: (value) bound ; channel: path_to_fa
+  port 3: (value) bound ; channel: feature_srcdir
+  port 4: (value) bound ; channel: path_to_nucleosome_ref
+  port 5: (cntrl) -     ; channel: $
+
+[process] nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: inputSH
+  port 2: (value) bound ; channel: inputbed
+  port 3: (value) bound ; channel: pandepth
+  port 4: (cntrl) -     ; channel: $
+
+Nov-23 05:35:39.866 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:35:39.867 [Task submitter] INFO  nextflow.Session - [ca/d36f74] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZKJ56A1HD)
+Nov-23 05:36:40.545 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 28; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:filterBAM_by_inputBed (ZKJ56A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/ca/d36f741fb7ba41f11ee465ba1f2bfd]
+Nov-23 05:36:40.572 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:36:40.573 [Task submitter] INFO  nextflow.Session - [a4/734a45] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZKJ56A1HD)
+Nov-23 05:36:40.920 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-23 05:36:40.921 [Task submitter] INFO  nextflow.Session - [5d/31bae7] Submitted process > nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZKJ56A1HD)
+Nov-23 05:36:42.890 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 51; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_TSS_count_features (ZKJ56A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/a4/734a454d9d79e9c09d90b416511649]
+Nov-23 05:36:50.711 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 50; name: nf01_enriched_features_and_TSS_count_features:run_enriched_features_and_TSS_count_features:generate_enriched_ecd_wgs_features (ZKJ56A1HD); status: COMPLETED; exit: 0; error: -; workDir: /mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features/workdir/down_genes_v0.1_Breast_TSS_beds_Normal/5d/31bae7877e2be29e4f4103c644b69a]
