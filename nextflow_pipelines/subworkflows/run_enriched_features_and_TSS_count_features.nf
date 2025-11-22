@@ -1,5 +1,5 @@
 
-include { filterBAM_by_inputBed as filterBAM_by_inputBed} from "../modules/filterBAM_by_inputBed.nf"
+include { filterBAM_by_inputBed} from "../modules/filterBAM_by_inputBed.nf"
 include { generate_enriched_ecd_wgs_features } from "../modules/generate_enriched_ecd_wgs_features.nf"
 include { generate_enriched_TSS_count_features } from "../modules/generate_enriched_TSS_count_features.nf"
 

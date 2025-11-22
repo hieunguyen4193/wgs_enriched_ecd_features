@@ -1,3 +1,5 @@
 assets
 hg19_genes
 .DS_Store
+*.tar.gz
+

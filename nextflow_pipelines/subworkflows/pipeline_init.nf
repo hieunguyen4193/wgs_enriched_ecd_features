@@ -9,8 +9,9 @@ workflow pipeline_init {
         .fromPath(input_SampleSheet)
         .splitCsv(header: true)
         .map { row -> tuple(row.SampleID, file(row.BAM_path))}
+        .view()
         .set{input_bam_ch}
-    
+        
     emit:
     samplesheet = input_bam_ch // emit to the samplesheet channel, use as input for other downstream processes
 }
