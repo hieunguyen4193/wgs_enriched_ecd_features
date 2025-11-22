@@ -39,4 +39,4 @@ maindf <- data.frame(inputbed = all.bed.files) %>%
                             tumor_or_normal)) %>%
   mutate(inputbed = str_replace(inputbed, path.to.current.assets, path.to.hpc.assets))
 
-write.table(maindf[, c("inputbed", "run_name")], sep = "\t", row.names = FALSE, col.names = TRUE, file.path(path.to.main.src, "bed_list.tsv"), quote = FALSE)
+write.table(maindf[, c("inputbed", "run_name")], sep = "\t", row.names = FALSE, col.names = TRUE, file.path(path.to.main.src, "nextflow_pipelines", "bed_list.tsv"), quote = FALSE)
