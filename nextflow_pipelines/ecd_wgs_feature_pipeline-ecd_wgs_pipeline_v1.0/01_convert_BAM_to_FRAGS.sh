@@ -61,7 +61,10 @@ sampleid=$(echo ${sampleid} | cut -d '.' -f 1)
 outputdir=${outputdir}/${sampleid}
 
 mkdir -p ${outputdir}
+
 picard="./picard.jar";
+# get picard from wget https://github.com/broadinstitute/picard/releases/download/3.4.0/picard.jar
+
 # preprocessing the input BAM file, check if the file exists, if yes, run the script, if yes, skip
 if [ ! -f "${outputdir}/${sampleid}.sortedN.markdup.bam" ]; then
     echo -e "Pre-processing the input BAM file " ${sampleid} " ..."

@@ -1,5 +1,9 @@
+INPUT_BED="/mnt/nvme/DATA_HIEUNGUYEN/resource/assets/TSS_UTR5p_regions/04_output/Normal/TSS_beds/Breast/v0.1/down_genes/promoter_regions_up_1000_down_1000.bed"
+RUN_NAME="down_genes_v0.1_Breast_TSS_beds_Normal";
+
 SAMPLE_SHEET="SampleSheet_BAM_highdepth.csv";
-OUTDIR="/mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features";
+MAIN_OUTDIR="/mnt/nvme/DATA_HIEUNGUYEN/outdir/TOO_enriched_features";
+OUTDIR="${MAIN_OUTDIR}/${RUN_NAME}";
 mkdir -p $OUTDIR;
 
 E01_SH="../E01_generate_filter_BAM_files.sh";
