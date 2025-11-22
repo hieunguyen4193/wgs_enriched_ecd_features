@@ -11,6 +11,7 @@ workflow nf01_enriched_features_and_TSS_count_features {
         run_name
         path_to_fa
         pandepth
+        feature_srcdir
     main:
         pipeline_init(input_SampleSheet)   
         run_enriched_features_and_TSS_count_features(
@@ -21,6 +22,7 @@ workflow nf01_enriched_features_and_TSS_count_features {
             E03_sh,
             run_name,
             path_to_fa,
-            pandepth
+            pandepth,
+            feature_srcdir
         )
 }

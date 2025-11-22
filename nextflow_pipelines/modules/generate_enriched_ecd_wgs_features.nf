@@ -8,6 +8,7 @@ process generate_enriched_ecd_wgs_features {
         file(inputSH)
         val(run_name)
         val(path_to_fa)
+        val(feature_srcdir)
     output:
         tuple val(sample_id), file("${sample_id}.filtered.bam")
 
@@ -16,6 +17,6 @@ process generate_enriched_ecd_wgs_features {
 
     script:
     """
-    bash ${inputSH} -i ${inputbam} -o . -r ${run_name} -f ${path_to_fa}
+    bash ${inputSH} -i ${inputbam} -o . -r ${run_name} -f ${path_to_fa} -s {feature_srcdir}
     """
 }

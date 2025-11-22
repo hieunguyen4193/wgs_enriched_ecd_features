@@ -1,4 +1,4 @@
-while getopts "i:o:r:f:" opt; do
+while getopts "i:o:r:f:s:" opt; do
   case ${opt} in
     i )
       inputbam=$OPTARG
@@ -11,6 +11,9 @@ while getopts "i:o:r:f:" opt; do
       ;;
     f )
       path_to_fa=$OPTARG
+      ;;
+    s )
+      feature_srcdir=$OPTARG
       ;;
     \? )
       echo "Usage: cmd [-i] inputbam [-o] outputdir [-r] run_name"

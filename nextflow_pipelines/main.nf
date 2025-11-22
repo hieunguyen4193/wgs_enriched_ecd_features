@@ -23,6 +23,7 @@ workflow {
         file(params.E03_SH),
         params.RUN_NAME,
         params.PATH_TO_FA,
-        params.PANDEPTH
+        params.PANDEPTH,
+        params.feature_srcdir
     )
 }

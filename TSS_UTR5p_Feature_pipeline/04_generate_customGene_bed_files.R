@@ -13,7 +13,7 @@ path.to.01.output <- file.path(path.to.main.output, "01_output")
 path.to.02.output <- file.path(path.to.main.output, "02_output")
 path.to.03.output <- file.path(path.to.main.output, "03_output")
 
-for (input.list.version in c("Tumor", "Normal")){
+for (input.list.version in c("Tumor", "Normal", "TUMOR_minus_NORMAL")){
   path.to.04.output <- file.path(path.to.main.output, "04_output", input.list.version)
   
   source(file.path(path.to.main.src, "TSS_UTR5p_Feature_pipeline" ,"TSS_UTR5p_helper_functions.R"))
@@ -53,17 +53,29 @@ for (input.list.version in c("Tumor", "Normal")){
       # generate TSS regions of selected genes. 
       generate_tss_regions_for_input_genes(tssdf = tssdf, 
                                            input.genes = full.genes, 
-                                           outputdir = file.path(path.to.04.output, "TSS_beds", cancer.type, list.version, "full_genes"), 
+                                           outputdir = file.path(path.to.04.output, 
+                                                                 "TSS_beds", 
+                                                                 cancer.type, 
+                                                                 list.version, 
+                                                                 "full_genes"), 
                                            up.flank = 1000, 
                                            down.flank = 1000)
       generate_tss_regions_for_input_genes(tssdf = tssdf, 
                                            input.genes = up.genes, 
-                                           outputdir = file.path(path.to.04.output, "TSS_beds", cancer.type, list.version, "up_genes"), 
+                                           outputdir = file.path(path.to.04.output, 
+                                                                 "TSS_beds", 
+                                                                 cancer.type, 
+                                                                 list.version, 
+                                                                 "up_genes"), 
                                            up.flank = 1000, 
                                            down.flank = 1000)
       generate_tss_regions_for_input_genes(tssdf = tssdf, 
                                            input.genes = down.genes, 
-                                           outputdir = file.path(path.to.04.output, "TSS_beds", cancer.type, list.version, "down_genes"), 
+                                           outputdir = file.path(path.to.04.output, 
+                                                                 "TSS_beds", 
+                                                                 cancer.type, 
+                                                                 list.version, 
+                                                                 "down_genes"), 
                                            up.flank = 1000, 
                                            down.flank = 1000)
       
@@ -85,4 +97,6 @@ for (input.list.version in c("Tumor", "Normal")){
     }
   }
 }
+
+
 
