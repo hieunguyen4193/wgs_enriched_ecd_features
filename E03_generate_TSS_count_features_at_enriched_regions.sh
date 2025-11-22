@@ -10,8 +10,6 @@ while getopts "i:b:o:p:" opt; do
         ;;
         p) pandepth="$OPTARG"
         ;;
-        r) run_name="$OPTARG"
-        ;;
         \?) echo "Usage: $0 -b <inputbam> -d <inputbed> -o <outputdir> -p <pandepth>"
                 exit 1
         ;;
@@ -28,11 +26,11 @@ echo -e "working on sample " $inputbam;
 echo -e "using bed file " $inputbed;
 echo -e "output will be saved to " $outputdir;
 
-mkdir -p ${outputdir}/${run_name};
+mkdir -p ${outputdir};
 
 filename=$(echo $inputbam | xargs -n 1 basename);
 filename=${filename%.bam*};
 
-${pandepth} -i ${inputbam} -b ${inputbed} -o ${outputdir}/${run_name}/${filename}.bed;
+${pandepth} -i ${inputbam} -b ${inputbed} -o ${outputdir}/${filename}.bed;
 
 # EOF

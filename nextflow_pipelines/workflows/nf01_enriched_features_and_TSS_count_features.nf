@@ -8,10 +8,10 @@ workflow nf01_enriched_features_and_TSS_count_features {
         E01_sh
         E02_sh
         E03_sh
-        run_name
         path_to_fa
         pandepth
         feature_srcdir
+        path_to_nucleosome_ref
     main:
         pipeline_init(input_SampleSheet)   
         run_enriched_features_and_TSS_count_features(
@@ -20,9 +20,9 @@ workflow nf01_enriched_features_and_TSS_count_features {
             E01_sh,
             E02_sh,
             E03_sh,
-            run_name,
             path_to_fa,
             pandepth,
-            feature_srcdir
+            feature_srcdir,
+            path_to_nucleosome_ref
         )
 }

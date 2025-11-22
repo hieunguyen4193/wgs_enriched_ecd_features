@@ -6,17 +6,17 @@ process generate_enriched_ecd_wgs_features {
     input:
         tuple val(sample_id), file(inputbam)
         file(inputSH)
-        val(run_name)
         val(path_to_fa)
-        val(feature_srcdir)
+        file(feature_srcdir)
+        file(path_to_nucleosome_ref)
     output:
-        tuple val(sample_id), file("${sample_id}.filtered.bam")
+        tuple val(sample_id), file("*${sample_id}*")
 
     when:
     task.ext.when == null || task.ext.when
 
     script:
     """
-    bash ${inputSH} -i ${inputbam} -o . -r ${run_name} -f ${path_to_fa} -s {feature_srcdir}
+    bash ${inputSH} -i ${inputbam} -o . -f ${path_to_fa} -s ${feature_srcdir} -n ${path_to_nucleosome_ref}
     """
 }

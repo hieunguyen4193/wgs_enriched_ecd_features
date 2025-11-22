@@ -62,7 +62,8 @@ outputdir=${outputdir}/${sampleid}
 
 mkdir -p ${outputdir}
 
-picard="./picard.jar";
+# picard="./picard.jar";
+picard="/home/hieunguyen/src/wgs_enriched_ecd_features/picard.jar"
 # get picard from wget https://github.com/broadinstitute/picard/releases/download/3.4.0/picard.jar
 
 # preprocessing the input BAM file, check if the file exists, if yes, run the script, if yes, skip

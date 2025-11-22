@@ -9,7 +9,7 @@ workflow pipeline_init {
         .fromPath(input_SampleSheet)
         .splitCsv(header: true)
         .map { row -> tuple(row.SampleID, file(row.BAM_path))}
-        .view()
+        //.view()
         .set{input_bam_ch}
         
     emit:

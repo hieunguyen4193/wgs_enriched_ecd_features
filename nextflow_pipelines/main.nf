@@ -21,9 +21,9 @@ workflow {
         file(params.E01_SH),
         file(params.E02_SH),
         file(params.E03_SH),
-        params.RUN_NAME,
         params.PATH_TO_FA,
         params.PANDEPTH,
-        params.feature_srcdir
+        file(params.feature_srcdir),
+        file(params.path_to_nucleosome_ref)
     )
 }

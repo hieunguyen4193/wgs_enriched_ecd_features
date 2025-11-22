@@ -7,16 +7,15 @@ process generate_enriched_TSS_count_features {
         tuple val(sample_id), file(inputbam)
         file(inputSH)
         file(inputbed)
-        val(run_name)
         val(pandepth)
     output:
-        tuple val(sample_id), file("${sample_id}.filtered.bam")
+        tuple val(sample_id), file("*${sample_id}*")
 
     when:
     task.ext.when == null || task.ext.when
 
     script:
     """
-    bash ${inputSH} -i ${inputbam} -b ${inputbed} -o . -p ${pandepth} -r ${run_name}
+    bash ${inputSH} -i ${inputbam} -b ${inputbed} -o . -p ${pandepth}
     """
 }

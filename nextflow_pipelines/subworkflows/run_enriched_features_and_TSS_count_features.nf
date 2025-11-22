@@ -10,12 +10,12 @@ workflow run_enriched_features_and_TSS_count_features {
         E01_sh
         E02_sh
         E03_sh
-        run_name
         path_to_fa
         pandepth
         feature_srcdir
+        path_to_nucleosome_ref
     main:
-        filtered_bam = filterBAM_by_inputBed(inputbam, inputbed, E01_sh, run_name)
-        generate_enriched_ecd_wgs_features(filtered_bam, E02_sh, run_name, path_to_fa, feature_srcdir)
-        generate_enriched_TSS_count_features(filtered_bam, E03_sh, inputbed, run_name, pandepth)
+        filtered_bam = filterBAM_by_inputBed(inputbam, inputbed, E01_sh)
+        generate_enriched_ecd_wgs_features(filtered_bam, E02_sh, path_to_fa, feature_srcdir, path_to_nucleosome_ref)
+        generate_enriched_TSS_count_features(filtered_bam, E03_sh, inputbed, pandepth)
 }   
